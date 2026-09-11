@@ -6,6 +6,12 @@
 
 **Курс:** Основы веб-технологий  
 
+--
+
+## Ссылка на сайт github pages
+
+https://dimkk8.github.io/Web-Klepnev//task1/html1.html
+
 ---
 
 ## Описание
