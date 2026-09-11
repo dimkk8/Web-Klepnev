@@ -16,37 +16,38 @@ body {
 
 /* Header */
 
-.site-header {
+header {
   padding: 45px 60px 0 60px;
 }
 
-.site-header__title {
+.header__title {
   font-size: 50px;
   font-weight: 700;
   color: #111111;
   margin-bottom: 30px;
 }
 
-.site-header__nav {
+nav {
   display: flex;
   gap: 30px;
   margin-bottom: 30px;
 }
 
-.site-header__link {
+nav a {
   text-decoration: none;
   font-size: 23px;
   font-weight: 500;
   color: #1a1a1a;
+  font-family: "Inter", sans-serif;
 }
 
-.site-header__link:hover {
+nav a:hover {
   color: #f60000;
 }
 
 /* Main layout */
 
-.main {
+main {
   padding: 0 60px;
 }
 
@@ -60,15 +61,9 @@ body {
   max-width: 900px;
 }
 
-.main section {
-  margin-bottom: 25px;
-}
-
 /* Section titles */
 
-.about__title,
-.advantages__title,
-.menu__title {
+h2 {
   font-size: 32px;
   font-weight: 700;
   color: #111111;
@@ -81,16 +76,17 @@ body {
   font-size: 20px;
   font-weight: 400;
   max-width: 850px;
+  margin-bottom: 15px;
 }
 
 /* Advantages section */
 
-.advantages__list {
+ul {
   list-style-type: disc;
   padding-left: 22px;
 }
 
-.advantages__item {
+li {
   font-size: 20px;
   margin-bottom: 8px;
 }
@@ -102,81 +98,81 @@ body {
   overflow-x: auto;
 }
 
-.menu__table {
+table {
   border-collapse: collapse;
   width: 100%;
   max-width: 780px;
 }
 
-.menu__table th,
-.menu__table td {
+table th,
+table td {
   border: 1px solid #1a1a1a;
   padding: 14px 18px;
   text-align: center;
   font-size: 18px;
 }
 
-.menu__table th {
+table th {
   font-weight: 700;
 }
 
-.menu__table td:nth-child(2) {
+table td:nth-child(2) {
   text-align: left;
 }
 
-.menu__table th:nth-child(2) {
+table th:nth-child(2) {
   text-align: left;
 }
 
 /* Footer */
 
-.site-footer {
+footer {
   background-color: #000000;
   color: #ffffff;
   padding: 35px 60px;
   margin-top: 18px;
 }
 
-.site-footer__text {
+.footer__text {
   font-size: 19px;
 }
 
-.site-footer__link {
+.footer__link {
   text-decoration: none;
   font-size: 19px;
   color: #ffffff;
 }
 
-.site-footer__link:hover {
+.footer__link:hover {
   color: #fcd261;
 }
 
 /* Responsive */
 
 @media (max-width: 650px) {
-  .site-header {
+  header {
     padding: 30px 30px 0 30px;
   }
 
-  .site-header__title {
+  h1 {
     font-size: 35px;
   }
 
-  .site-header__nav {
+  nav {
     flex-wrap: wrap;
     gap: 10px;
   }
 
-  .main {
+  main {
     padding: 0 20px;
   }
 
-  .menu__table th,
-  .menu__table td {
+  table th,
+  table td {
     padding: 10px 12px;
   }
 
-  .site-footer {
+  footer {
     padding: 25px 30px;
   }
 }
@@ -186,22 +182,20 @@ body {
     font-size: 15px;
   }
 
-  .site-header__title {
+  h1{
     font-size: 35px;
   }
 
-  .site-header__link {
+  nav a {
     font-size: 20px;
   }
 
-  .about__title,
-  .advantages__title,
-  .menu__title {
+  h2 {
     font-size: 24px;
   }
 
-  .menu__table th,
-  .menu__table td {
+  table th,
+  table td {
     font-size: 16px;
     padding: 8px 7px;
   }
