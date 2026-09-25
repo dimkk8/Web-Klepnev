@@ -72,11 +72,131 @@ section > div > div:hover button {
 	background-color: #ffc9bb;
 }
 
+#order h2 {
+	text-align: center;
+	margin-bottom: 40px;
+}
+
+form {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 60px;
+	margin-bottom: 40px;
+}
+
+fieldset {
+	border: none;
+	padding: 0;
+	margin: 0;
+}
+
+legend {
+	padding: 0;
+	font-size: 24px;
+	font-weight: 700;
+	margin-bottom: 25px;
+}
+
+fieldset > div {
+	margin-bottom: 20px;
+}
+
+fieldset > div:last-child {
+	margin-bottom: 0px;
+}
+
+fieldset > div > div {
+	margin-bottom: 10px;
+}
+
+fieldset > div > div:last-child {
+	margin-bottom: 0;
+}
+
+fieldset label {
+	display: block;
+	margin-bottom: 8px;
+}
+
+fieldset > div > p {
+	margin-bottom: 8px;
+}
+
+select,
+textarea,
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="time"] {
+	display: block;
+	width: 100%;
+	padding: 10px 14px;
+	border: 1px solid #c9c9c9;
+	border-radius: 6px;
+	font-size: 16px;
+	font-family: inherit;
+	color: #1a1a1a;
+}
+
+textarea {
+	resize: vertical;
+	min-height: 104px;
+	max-height: 204px;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+	width: auto;
+	cursor: pointer;
+}
+
+input[type="checkbox"] + label,
+input[type="radio"] + label {
+	display: inline;
+	margin-left: 8px;
+	margin-bottom: 0;
+	cursor: pointer;
+}
+
+/* Пояснительные подписи */
+
+input[type="text"] + p,
+input[type="time"] + p {
+	margin-top: 6px;
+	margin-bottom: 0;
+	font-style: italic;
+	color: #888888;
+	font-size: 14px;
+}
+
+/* Кнопки формы */
+
+#form-buttons {
+	display: flex;
+	gap: 15px;
+}
+
+#form-buttons button {
+	background-color: #ffffff;
+	border: 1px solid #1a1a1a;
+	margin-top: 0;
+}
+
+#form-buttons button:hover {
+	background-color: #1a1a1a;
+	color: #ffffff;
+}
+
 /* Responsive */
 
 @media (max-width: 800px) {
 	section > div {
 		grid-template-columns: repeat(2, 1fr);
+	}
+
+	form {
+		grid-template-columns: 1fr;
+		gap: 35px;
 	}
 }
 
