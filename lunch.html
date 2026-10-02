@@ -30,83 +30,17 @@
 
 		<section>
 			<h2>Выберите суп</h2>
-			<div>
-				<div>
-					<img src="images/gaspacho.jpg" alt="Гаспачо">
-					<p>270₽</p>
-					<p>Гаспачо</p>
-					<p>350 г</p>
-					<button>Добавить</button>
-				</div>
-				<div>
-					<img src="https://static.1000.menu/img/content/27015/sup-pure-gribnoi-s-syrom_1526349356_1_max.jpg" alt="Грибной суп-пюре">
-					<p>290₽</p>
-					<p>Грибной суп-пюре</p>
-					<p>330 г</p>
-					<button>Добавить</button>
-				</div>
-				<div>
-					<img src="https://www.kulina.ru/images/docs/Image/borz(17).jpg" alt="Борщ">
-					<p>340₽</p>
-					<p>Борщ</p>
-					<p>330 г</p>
-					<button>Добавить</button>
-				</div>
-			</div>
+			<div data-category="soup"></div>
 		</section>
 
 		<section>
 			<h2>Выберите главное блюдо</h2>
-			<div>
-				<div>
-					<img src="images/zharenaya-kartoshka-s-opyatami.jpg" alt="Жареная картошка с грибами">
-					<p>270₽</p>
-					<p>Жареная картошка с грибами</p>
-					<p>250 г</p>
-					<button>Добавить</button>
-				</div>
-				<div>
-					<img src="https://images.gastronom.ru/41J53s6m5gMazGflBg50ObpUuV4Sckcg2lr9kqiPs1g/pr:content-group-cover-image/g:ce/rs:auto:0:0:0/L2Ntcy9hbGwtaW1hZ2VzL2UwNDVhMjM4LTlmYTctNDZjNi05YmJiLWQyNmQ5MGUzMzE3MC5qcGc.webp" alt="Лазанья">
-					<p>500₽</p>
-					<p>Лазанья</p>
-					<p>310 г</p>
-					<button>Добавить</button>
-				</div>
-				<div>
-					<img src="https://dostavka.phali-hinkali.ru/api2/images/IikoProducts2275/04e6bb1193-1_1000x.jpg" alt="Котлеты из курицы с картофельным пюре">
-					<p>330₽</p>
-					<p>Котлеты из курицы с картофельным пюре</p>
-					<p>280 г</p>
-					<button>Добавить</button>
-				</div>
-			</div>
+			<div data-category="main"></div>
 		</section>
 
 		<section>
 			<h2>Выберите напиток</h2>
-			<div>
-				<div>
-					<img src="https://nashbarash.ru/upload/593adf3fb37d5.jpg" alt="Апельсиновый сок">
-					<p>150₽</p>
-					<p>Апельсиновый сок</p>
-					<p>300 мл</p>
-					<button>Добавить</button>
-				</div>
-				<div>
-					<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTg-EnkfT7QeoZi51Rsmd4qv5d1Xaz_YYZpDcS4qvqs0czrgK8UlMa-0ZyT&s=10" alt="Яблочный сок">
-					<p>90₽</p>
-					<p>Яблочный сок</p>
-					<p>300 мл</p>
-					<button>Добавить</button>
-				</div>
-				<div>
-					<img src="https://www.osteria.ru/upload/dev2fun.imagecompress/webp/iblock/8f6/yzyzxnea9m0qtyptvr6q3xht9aplvcom/DSC06868.webp" alt="Морковный сок">
-					<p>130₽</p>
-					<p>Морковный сок</p>
-					<p>300 мл</p>
-					<button>Добавить</button>
-				</div>
-			</div>
+			<div data-category="drink"></div>
 		</section>
 
 		<section id="order">
@@ -116,34 +50,31 @@
 				<fieldset>
 					<legend>Ваш заказ</legend>
 
-					<div>
-						<label for="soup">Суп</label>
-						<select id="soup" name="soup" required>
-							<option value="" selected>-- Выберите суп --</option>
-							<option value="gaspacho">Гаспачо</option>
-							<option value="mushroom-soup">Грибной суп-пюре</option>
-							<option value="borsch">Борщ</option>
-						</select>
+					<div id="nothing-selected">
+						<p>Ничего не выбрано</p>
 					</div>
 
-					<div>
-						<label for="main-dish">Главное блюдо</label>
-						<select id="main-dish" name="main-dish" required>
-							<option value="" selected>-- Выберите главное блюдо --</option>
-							<option value="potato">Жареная картошка с грибами</option>
-							<option value="lasagna">Лазанья</option>
-							<option value="cutlets">Котлеты из курицы с картофельным пюре</option>
-						</select>
+					<div id="order-soup" hidden>
+						<p>Суп</p>
+						<p>Блюдо не выбрано</p>
+						<input type="hidden" name="soup">
 					</div>
 
-					<div>
-						<label for="drink">Напиток</label>
-						<select id="drink" name="drink" required>
-							<option value="" selected>-- Выберите напиток --</option>
-							<option value="orange-juice">Апельсиновый сок</option>
-							<option value="apple-juice">Яблочный сок</option>
-							<option value="carrot-juice">Морковный сок</option>
-						</select>
+					<div id="order-main" hidden>
+						<p>Главное блюдо</p>
+						<p>Блюдо не выбрано</p>
+						<input type="hidden" name="main-dish">
+					</div>
+
+					<div id="order-drink" hidden>
+						<p>Напиток</p>
+						<p>Напиток не выбран</p>
+						<input type="hidden" name="drink">
+					</div>
+
+					<div id="order-total" hidden>
+						<p>Стоимость заказа</p>
+						<p>0₽</p>
 					</div>
 
 					<div>
@@ -215,6 +146,9 @@
 		<p>Email: <a href="mailto:info@foodconstruct.ru">info@foodconstruct.ru</a></p>
 	</footer>
 
+	<script src="js/dishes.js"></script>
+	<script src="js/display.js"></script>
+	<script src="js/order.js"></script>
 </body>
 
 </html>

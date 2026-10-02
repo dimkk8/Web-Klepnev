@@ -21,6 +21,7 @@ section > div > div {
 	border: 2px solid transparent;
 	border-radius: 35px;
 	background-color: #ffffff;
+	cursor: pointer;
 	filter: drop-shadow(17px 19px 24px rgba(0, 0, 0, 0.13));
 }
 
@@ -29,8 +30,8 @@ section > div > div:hover {
 }
 
 section > div > div img {
-    height: 100%;
-    width: 100%;
+	width: 100%;
+	height: 100%;
 	border-radius: 35px;
 	background-color: #f1eee9;
 }
@@ -69,8 +70,10 @@ button {
 }
 
 section > div > div:hover button {
-	background-color: #ffc9bb;
+	background-color: #ffe0d8;
 }
+
+/* Форма заказа */
 
 #order h2 {
 	text-align: center;
@@ -102,7 +105,7 @@ fieldset > div {
 }
 
 fieldset > div:last-child {
-	margin-bottom: 0px;
+	margin-bottom: 0;
 }
 
 fieldset > div > div {
@@ -122,7 +125,6 @@ fieldset > div > p {
 	margin-bottom: 8px;
 }
 
-select,
 textarea,
 input[type="text"],
 input[type="email"],
@@ -140,8 +142,7 @@ input[type="time"] {
 
 textarea {
 	resize: vertical;
-	min-height: 104px;
-	max-height: 204px;
+	min-height: 110px;
 }
 
 input[type="checkbox"],
@@ -158,7 +159,13 @@ input[type="radio"] + label {
 	cursor: pointer;
 }
 
-/* Пояснительные подписи */
+/* Выбранные блюда в разделе «Ваш заказ» */
+
+[id^="order-"] p:first-child {
+	font-weight: 600;
+}
+
+/* Пояснительные подписи под адресом и временем */
 
 input[type="text"] + p,
 input[type="time"] + p {
@@ -180,11 +187,6 @@ input[type="time"] + p {
 	background-color: #ffffff;
 	border: 1px solid #1a1a1a;
 	margin-top: 0;
-}
-
-#form-buttons button:hover {
-	background-color: #1a1a1a;
-	color: #ffffff;
 }
 
 /* Responsive */
