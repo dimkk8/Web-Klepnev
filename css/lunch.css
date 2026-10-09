@@ -6,7 +6,7 @@ section {
 
 /* Сетка блюд */
 
-section > div {
+[data-category] {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	gap: 10px;
@@ -14,7 +14,7 @@ section > div {
 
 /* Карточка блюда */
 
-section > div > div {
+[data-category] > div {
 	display: flex;
 	flex-direction: column;
 	padding: 30px 40px;
@@ -25,33 +25,33 @@ section > div > div {
 	filter: drop-shadow(17px 19px 24px rgba(0, 0, 0, 0.13));
 }
 
-section > div > div:hover {
+[data-category] > div:hover {
 	border: 2px solid tomato;
 }
 
-section > div > div img {
+[data-category] > div img {
 	width: 100%;
-	height: 100%;
+	height: 550px;
 	border-radius: 35px;
 	background-color: #f1eee9;
 }
 
 /* Цена */
 
-section > div > div p:nth-of-type(1) {
+[data-category] > div p:nth-of-type(1) {
 	font-size: 22px;
 	margin-top: 15px;
 }
 
 /* Название */
 
-section > div > div p:nth-of-type(2) {
+[data-category] > div p:nth-of-type(2) {
 	font-size: 20px;
 }
 
 /* Вес / объем */
 
-section > div > div p:nth-of-type(3) {
+[data-category] > div p:nth-of-type(3) {
 	color: #909090;
 	margin-top: auto;
 	padding-top: 15px;
@@ -69,8 +69,32 @@ button {
 	cursor: pointer;
 }
 
-section > div > div:hover button {
+[data-category] > div:hover button {
 	background-color: #ffe0d8;
+}
+
+/* Фильтры */
+
+[data-filters] {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	margin-bottom: 25px;
+}
+
+[data-filters] button {
+	margin-top: 0;
+	padding: 8px 20px;
+	font-size: 16px;
+}
+
+[data-filters] button:hover {
+	background-color: #ffe0d8;
+}
+
+[data-filters] button[aria-pressed="true"] {
+	background-color: tomato;
+	color: #ffffff;
 }
 
 /* Форма заказа */
@@ -192,7 +216,7 @@ input[type="time"] + p {
 /* Responsive */
 
 @media (max-width: 800px) {
-	section > div {
+	[data-category] {
 		grid-template-columns: repeat(2, 1fr);
 	}
 
@@ -207,7 +231,7 @@ input[type="time"] + p {
 		text-align: center;
 	}
 
-	section > div {
+	[data-category] {
 		grid-template-columns: 1fr;
 	}
 }

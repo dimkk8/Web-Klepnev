@@ -30,17 +30,51 @@
 
 		<section>
 			<h2>Выберите суп</h2>
+			<div data-filters="soup">
+				<button type="button" data-kind="fish" aria-pressed="false">Рыбный</button>
+				<button type="button" data-kind="meat" aria-pressed="false">Мясной</button>
+				<button type="button" data-kind="veg" aria-pressed="false">Вегетарианский</button>
+			</div>
 			<div data-category="soup"></div>
 		</section>
 
 		<section>
 			<h2>Выберите главное блюдо</h2>
+			<div data-filters="main">
+				<button type="button" data-kind="fish" aria-pressed="false">Рыбные</button>
+				<button type="button" data-kind="meat" aria-pressed="false">Мясные</button>
+				<button type="button" data-kind="veg" aria-pressed="false">Вегетарианские</button>
+			</div>
 			<div data-category="main"></div>
 		</section>
 
 		<section>
+			<h2>Выберите салат или стартер</h2>
+			<div data-filters="salad">
+				<button type="button" data-kind="fish" aria-pressed="false">Рыбные</button>
+				<button type="button" data-kind="meat" aria-pressed="false">Мясные</button>
+				<button type="button" data-kind="veg" aria-pressed="false">Вегетарианские</button>
+			</div>
+			<div data-category="salad"></div>
+		</section>
+
+		<section>
 			<h2>Выберите напиток</h2>
+			<div data-filters="drink">
+				<button type="button" data-kind="cold" aria-pressed="false">Холодные</button>
+				<button type="button" data-kind="hot" aria-pressed="false">Горячие</button>
+			</div>
 			<div data-category="drink"></div>
+		</section>
+
+		<section>
+			<h2>Выберите десерт</h2>
+			<div data-filters="dessert">
+				<button type="button" data-kind="small" aria-pressed="false">Маленькая порция</button>
+				<button type="button" data-kind="medium" aria-pressed="false">Средняя порция</button>
+				<button type="button" data-kind="large" aria-pressed="false">Большая порция</button>
+			</div>
+			<div data-category="dessert"></div>
 		</section>
 
 		<section id="order">
@@ -66,10 +100,22 @@
 						<input type="hidden" name="main-dish">
 					</div>
 
+					<div id="order-salad" hidden>
+						<p>Салат или стартер</p>
+						<p>Салат или стартер не выбран</p>
+						<input type="hidden" name="salad">
+					</div>
+
 					<div id="order-drink" hidden>
 						<p>Напиток</p>
 						<p>Напиток не выбран</p>
 						<input type="hidden" name="drink">
+					</div>
+
+					<div id="order-dessert" hidden>
+						<p>Десерт</p>
+						<p>Десерт не выбран</p>
+						<input type="hidden" name="dessert">
 					</div>
 
 					<div id="order-total" hidden>
@@ -148,6 +194,7 @@
 
 	<script src="js/dishes.js"></script>
 	<script src="js/display.js"></script>
+	<script src="js/filters.js"></script>
 	<script src="js/order.js"></script>
 </body>
 

@@ -2,14 +2,18 @@
 const order = {
 	soup: null,
 	main: null,
-	drink: null
+	salad: null,
+	drink: null,
+	dessert: null
 };
 
 // Сообщения для пустых категорий
 const emptyMessages = {
 	soup: "Блюдо не выбрано",
 	main: "Блюдо не выбрано",
-	drink: "Напиток не выбран"
+	salad: "Салат или стартер не выбран",
+	drink: "Напиток не выбран",
+	dessert: "Десерт не выбран"
 };
 
 const nothingSelected = document.getElementById("nothing-selected");

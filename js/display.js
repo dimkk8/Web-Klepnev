@@ -24,13 +24,22 @@ function createDishCard(dish) {
 	return card;
 }
 
-// Сортируем блюда по алфавиту и выводим каждое в свою секцию
+// Выводит блюда одной категории (при указанном kind — только этого вида)
+function displayCategory(category, kind = null) {
+	const container = document.querySelector(`[data-category="${category}"]`);
+	container.replaceChildren();
+
+	dishes
+		.filter((dish) => dish.category === category && (kind === null || dish.kind === kind))
+		.forEach((dish) => container.append(createDishCard(dish)));
+}
+
+// Сортируем блюда по алфавиту и выводим каждую категорию в свою секцию
 function displayDishes() {
 	dishes.sort((a, b) => a.name.localeCompare(b.name, "ru"));
 
-	dishes.forEach((dish) => {
-		const container = document.querySelector(`[data-category="${dish.category}"]`);
-		container.append(createDishCard(dish));
+	document.querySelectorAll("[data-category]").forEach((container) => {
+		displayCategory(container.dataset.category);
 	});
 }
 
