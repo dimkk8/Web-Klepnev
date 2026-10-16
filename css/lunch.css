@@ -235,3 +235,99 @@ input[type="time"] + p {
 		grid-template-columns: 1fr;
 	}
 }
+
+/* Доступные для заказа комбо */
+
+#combos h2 {
+	text-align: center;
+	margin-bottom: 40px;
+}
+
+#combos > div {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 40px 20px;
+}
+
+#combos > div > div {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: flex-start;
+	gap: 15px;
+}
+
+#combos > div > div > div {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+}
+
+#combos img {
+	width: 70px;
+	height: 70px;
+	transition: transform 0.2s;
+}
+
+#combos img:hover {
+	transform: translateY(-6px) scale(1.15);
+}
+
+#combos p {
+	font-size: 18px;
+}
+
+#combos p + p {
+	font-size: 16px;
+	font-style: italic;
+}
+
+@media (max-width: 800px) {
+	#combos > div {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (max-width: 600px) {
+	#combos > div {
+		grid-template-columns: 1fr;
+	}
+}
+
+/* Уведомление */
+
+#notification {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 1000;
+	width: 90%;
+	max-width: 500px;
+	padding: 40px 30px;
+	text-align: center;
+	background-color: #ffffff;
+	border-radius: 20px;
+	box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+}
+
+#notification p {
+	font-size: 24px;
+	margin-bottom: 30px;
+}
+
+#notification button {
+	margin-top: 0;
+	padding: 12px 45px;
+	font-size: 22px;
+	color: #1a1a1a;
+	background-color: #ffffff;
+	border: 2px solid #1a1a1a;
+	border-radius: 20px;
+}
+
+#notification button:hover {
+	color: #ffffff;
+	background-color: tomato;
+}
