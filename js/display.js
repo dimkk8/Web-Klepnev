@@ -43,4 +43,10 @@ function displayDishes() {
 	});
 }
 
-displayDishes();
+// Сначала загружаем блюда с сервера, затем сортируем и выводим на страницу
+loadDishes()
+	.then(displayDishes)
+	.catch((error) => {
+		console.error(error);
+		showNotification("Не удалось загрузить блюда. Попробуйте обновить страницу.");
+	});
