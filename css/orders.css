@@ -1,0 +1,232 @@
+@charset "UTF-8";
+
+main h2 {
+	margin-bottom: 25px;
+}
+
+#orders-empty {
+	font-size: 18px;
+}
+
+/* Таблица заказов */
+
+#table-wrapper {
+	max-width: 100%;
+	overflow-x: auto;
+}
+
+table {
+	border-collapse: collapse;
+	width: 100%;
+	max-width: 1100px;
+}
+
+th,
+td {
+	padding: 16px 12px;
+	text-align: center;
+	vertical-align: middle;
+	font-size: 16px;
+	border-bottom: 1px solid #dddddd;
+}
+
+th {
+	font-weight: 700;
+	border-top: 1px solid #dddddd;
+}
+
+th:nth-child(3),
+td:nth-child(3) {
+	text-align: left;
+}
+
+td:last-child {
+	white-space: nowrap;
+}
+
+td button {
+	padding: 4px;
+	color: #1a1a1a;
+	background: none;
+	border: none;
+	cursor: pointer;
+}
+
+td button:hover {
+	color: tomato;
+}
+
+td button svg {
+	display: block;
+	width: 20px;
+	height: 20px;
+	fill: none;
+	stroke: currentColor;
+	stroke-width: 2;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+}
+
+/* Модальные окна */
+
+dialog {
+	position: fixed;
+	top: 50%;
+	right: 25%;
+	left: auto;
+	transform: translate(50%, -50%);
+	width: 90%;
+	max-width: 640px;
+	padding: 0;
+	margin: 0;
+	border: none;
+	border-radius: 20px;
+	color: #1a1a1a;
+}
+
+dialog[data-mode="delete"] {
+	max-width: 500px;
+}
+
+/* Отступ между номером заказа и датой в окне удаления */
+dialog[data-mode="delete"] dl {
+	margin-top: 16px;
+}
+
+dialog::backdrop {
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
+#modal-form {
+	padding: 25px 35px;
+}
+
+#modal-form > div:first-child {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #dddddd;
+}
+
+#modal-form > div:last-child {
+	display: flex;
+	justify-content: flex-end;
+	gap: 10px;
+	margin-top: 25px;
+	padding-top: 25px;
+	border-top: 1px solid #dddddd;
+}
+
+#modal-form h2 {
+	margin: 0;
+	font-size: 22px;
+}
+
+#modal-form h3 {
+	margin: 18px 0 8px;
+	font-size: 17px;
+}
+
+#modal-form > div:nth-child(2) {
+	padding-top: 15px;
+}
+
+dl {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 8px 20px;
+}
+
+dd {
+	word-break: break-word;
+}
+
+input,
+select,
+textarea {
+	width: 100%;
+	padding: 5px 8px;
+	font-size: 15px;
+	color: #1a1a1a;
+	background-color: #ffffff;
+	border: 1px solid #1a1a1a;
+}
+
+textarea {
+	resize: vertical;
+}
+
+#modal-form button {
+	padding: 10px 28px;
+	font-size: 17px;
+	font-weight: 500;
+	color: #1a1a1a;
+	background-color: #f1eee9;
+	border: none;
+	border-radius: 10px;
+	cursor: pointer;
+}
+
+#modal-form > div:first-child button {
+	padding: 0 4px;
+	font-size: 30px;
+	line-height: 1;
+	background: none;
+}
+
+#modal-form button[type="submit"] {
+	color: #ffffff;
+	background-color: #2e9e4a;
+}
+
+#modal[data-mode="delete"] button[type="submit"] {
+	background-color: #b3151a;
+}
+
+#modal-form button:hover {
+	opacity: 0.85;
+}
+
+/* Уведомление */
+
+#toast {
+	inset: auto;
+	top: 20px;
+	right: 20px;
+	margin: 0;
+	max-width: 90%;
+	padding: 15px 25px;
+	font-size: 17px;
+	color: #ffffff;
+	background-color: #2e9e4a;
+	border: none;
+	border-radius: 12px;
+	box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+}
+
+#toast[data-type="error"] {
+	background-color: #b3151a;
+}
+
+@media (max-width: 600px) {
+	dialog {
+		top: 50%;
+		right: auto;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	#modal-form {
+		padding: 20px;
+	}
+
+	dl {
+		grid-template-columns: 1fr;
+		gap: 2px;
+	}
+
+	dd {
+		margin-bottom: 8px;
+	}
+}
