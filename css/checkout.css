@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+#composition h2 {
+	text-align: center;
+	margin-bottom: 40px;
+}
+
+#empty-order {
+	margin-bottom: 30px;
+	font-size: 20px;
+	text-align: center;
+}
+
+#empty-order a {
+	color: tomato;
+}
+
+/* Список блюд в левой части формы */
+
+#order-summary dl {
+	display: grid;
+	grid-template-columns: 1fr 1.4fr;
+	gap: 10px 20px;
+	margin-bottom: 15px;
+}
+
+#order-summary dt {
+	font-weight: 600;
+}
+
+#order-summary dd[data-empty] {
+	color: #888888;
+}
+
+#order-total {
+	font-size: 20px;
+	font-weight: 700;
+}

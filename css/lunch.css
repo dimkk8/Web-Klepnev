@@ -31,7 +31,8 @@ section {
 
 [data-category] > div img {
 	width: 100%;
-	height: 450px;
+	height: 500px;
+	object-fit: cover;
 	border-radius: 35px;
 	background-color: #f1eee9;
 }
@@ -183,12 +184,6 @@ input[type="radio"] + label {
 	cursor: pointer;
 }
 
-/* Выбранные блюда в разделе «Ваш заказ» */
-
-[id^="order-"] p:first-child {
-	font-weight: 600;
-}
-
 /* Пояснительные подписи под адресом и временем */
 
 input[type="text"] + p,
@@ -330,4 +325,62 @@ input[type="time"] + p {
 #notification button:hover {
 	color: #ffffff;
 	background-color: tomato;
+}
+
+/* Выбранные блюда в меню */
+
+[data-category] > div[data-selected] {
+	border-color: tomato;
+}
+
+/* Панель перехода к оформлению */
+
+#order-panel {
+	position: sticky;
+	bottom: 0;
+	z-index: 10;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 20px;
+	margin-top: 20px;
+	padding: 15px 25px;
+	background-color: #ffffff;
+	border-radius: 20px 20px 0 0;
+	box-shadow: 0 -6px 24px rgba(0, 0, 0, 0.12);
+}
+
+#order-panel[hidden] {
+	display: none;
+}
+
+#order-panel p {
+	font-size: 20px;
+}
+
+#order-panel a {
+	padding: 10px 25px;
+	font-size: 18px;
+	font-weight: 500;
+	color: #ffffff;
+	text-decoration: none;
+	background-color: tomato;
+	border-radius: 10px;
+}
+
+#order-panel a[href]:hover {
+	opacity: 0.85;
+}
+
+#order-panel a:not([href]) {
+	background-color: #c9c9c9;
+	cursor: not-allowed;
+}
+
+@media (max-width: 600px) {
+	#order-panel {
+		flex-direction: column;
+		gap: 10px;
+		padding: 12px 20px;
+	}
 }

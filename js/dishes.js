@@ -1,5 +1,5 @@
 const API_URL = "https://web-basics-api-gagashaggy.msk1.amvera.tech/labs/api/dishes/my";
-const API_KEY = "4a54d08e-da5d-317d-8d91-c486ff7e318f";
+const API_KEY = "076c4eb3-bb97-31be-ad9b-b68f1366b031";
 
 // Если API называет категорию иначе, чем data-category в lunch.html
 const categoryAliases = {

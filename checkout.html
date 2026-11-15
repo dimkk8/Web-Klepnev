@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Оформить заказ | Food Construct</title>
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/lunch.css">
+	<link rel="stylesheet" href="css/checkout.css">
+</head>
+
+<body>
+
+	<header>
+		<h1>Food Construct</h1>
+		<nav>
+			<a href="index.html">О нас</a>
+			<a href="lunch.html">Собрать ланч</a>
+			<a id="active" href="checkout.html">Оформить заказ</a>
+			<a href="orders.html">Заказы</a>
+			<a href="#footer">Контакты</a>
+		</nav>
+	</header>
+
+	<main>
+
+		<section id="composition">
+			<h2>Состав заказа</h2>
+			<p id="empty-order" hidden>
+				Ничего не выбрано. Чтобы добавить блюда в заказ, перейдите на страницу <a href="lunch.html">Собрать ланч</a>.
+			</p>
+			<div data-category="selected"></div>
+		</section>
+
+		<section id="order">
+			<h2>Оформление заказа</h2>
+			<form>
+
+				<fieldset>
+					<legend>Ваш заказ</legend>
+
+					<div id="order-summary">
+						<dl></dl>
+						<p id="order-total" hidden></p>
+					</div>
+
+					<div>
+						<label for="comment">Комментарии к заказу</label>
+						<textarea id="comment" name="comment" rows="5"></textarea>
+					</div>
+				</fieldset>
+
+				<fieldset>
+					<legend>Ваши данные</legend>
+
+					<div>
+						<label for="name">Имя</label>
+						<input type="text" id="name" name="full_name" required>
+					</div>
+
+					<div>
+						<label for="email">Email</label>
+						<input type="email" id="email" name="email" required>
+					</div>
+
+					<div>
+						<input type="checkbox" id="subscribe" name="subscribe" checked>
+						<label for="subscribe">Получать информацию о скидках и акциях</label>
+					</div>
+
+					<div>
+						<label for="phone">Номер телефона</label>
+						<input type="tel" id="phone" name="phone" required>
+					</div>
+
+					<div>
+						<label for="address">Адрес доставки</label>
+						<input type="text" id="address" name="delivery_address" required>
+						<p>Доставка осуществляется только по Москве</p>
+					</div>
+
+					<div>
+						<p>Время доставки:</p>
+						<div>
+							<input type="radio" id="asap" name="delivery_type" value="now" required>
+							<label for="asap">Как можно скорее</label>
+						</div>
+						<div>
+							<input type="radio" id="scheduled" name="delivery_type" value="by_time" required>
+							<label for="scheduled">К указанному времени</label>
+						</div>
+					</div>
+
+					<div>
+						<label for="delivery-time">Укажите время доставки</label>
+						<input type="time" id="delivery-time" name="delivery_time" min="07:00" max="23:00" step="300">
+						<p>Доступное время доставки с 7:00 до 23:00 каждые 5 минут</p>
+					</div>
+
+					<div id="form-buttons">
+						<button type="reset">Сбросить</button>
+						<button type="submit">Отправить</button>
+					</div>
+				</fieldset>
+
+			</form>
+		</section>
+
+	</main>
+
+	<footer id="footer">
+		<p>Позвонить нам <a href="tel:+70000000000">+7-000-000-00-00</a></p>
+		<p>Email: <a href="mailto:info@foodconstruct.ru">info@foodconstruct.ru</a></p>
+	</footer>
+
+	<script src="js/dishes.js"></script>
+	<script src="js/storage.js"></script>
+	<script src="js/cards.js"></script>
+	<script src="js/combo.js"></script>
+	<script src="js/checkout.js"></script>
+</body>
+
+</html>

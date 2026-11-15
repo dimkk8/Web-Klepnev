@@ -1,74 +1,50 @@
-// Выбранные блюда по категориям
-const order = {
-	soup: null,
-	main: null,
-	salad: null,
-	drink: null,
-	dessert: null
-};
-
-// Сообщения для пустых категорий
-const emptyMessages = {
-	soup: "Блюдо не выбрано",
-	main: "Блюдо не выбрано",
-	salad: "Салат или стартер не выбран",
-	drink: "Напиток не выбран",
-	dessert: "Десерт не выбран"
-};
-
-const nothingSelected = document.getElementById("nothing-selected");
+// Страница «Собрать ланч»: выбор блюд, подсветка и панель перехода к оформлению
+const orderPanel = document.getElementById("order-panel");
 const orderTotal = document.getElementById("order-total");
-const form = document.querySelector("form");
+const checkoutLink = document.getElementById("checkout-link");
 
-// Обновляет раздел «Ваш заказ» в форме
-function updateOrder() {
-	let total = 0;
+// Подсвечивает выбранные блюда в меню
+function updateSelection() {
+	document.querySelectorAll("[data-dish]").forEach((card) => {
+		const dish = dishes.find((item) => item.keyword === card.dataset.dish);
 
-	for (const category in order) {
-		const dish = order[category];
-		const block = document.getElementById(`order-${category}`);
-		const text = block.querySelectorAll("p")[1];
-		const field = block.querySelector("input");
-
-		if (dish) {
-			text.textContent = `${dish.name} ${dish.price}₽`;
-			field.value = dish.keyword;
-			total += dish.price;
+		if (dish && isSelected(dish)) {
+			card.dataset.selected = "";
 		} else {
-			text.textContent = emptyMessages[category];
-			field.value = "";
+			delete card.dataset.selected;
 		}
-	}
-
-	const isEmpty = Object.values(order).every((dish) => dish === null);
-
-	nothingSelected.hidden = !isEmpty;
-	orderTotal.hidden = isEmpty;
-	for (const category in order) {
-		document.getElementById(`order-${category}`).hidden = isEmpty;
-	}
-
-	orderTotal.querySelectorAll("p")[1].textContent = `${total}₽`;
+	});
 }
 
-// Клик по карточке — ищем блюдо в массиве по data-dish
+// Показывает стоимость и включает ссылку, только если собран комбо
+function updatePanel() {
+	const selected = getSelectedDishes();
+	const chosen = CATEGORIES.map((category) => selected[category]).filter(Boolean);
+
+	orderPanel.hidden = chosen.length === 0;
+	orderTotal.textContent = `${chosen.reduce((sum, dish) => sum + dish.price, 0)}₽`;
+
+	if (getComboMessage(selected) === null) {
+		checkoutLink.setAttribute("href", "checkout.html");
+		checkoutLink.removeAttribute("aria-disabled");
+	} else {
+		checkoutLink.removeAttribute("href");
+		checkoutLink.setAttribute("aria-disabled", "true");
+	}
+}
+
+// Клик по карточке — сохраняем id блюда в localStorage
 document.querySelectorAll("[data-category]").forEach((container) => {
 	container.addEventListener("click", (event) => {
 		const card = event.target.closest("[data-dish]");
 		if (!card) return;
 
 		const dish = dishes.find((item) => item.keyword === card.dataset.dish);
-		order[dish.category] = dish;
-		updateOrder();
+		addToOrder(dish);
+		updateSelection();
+		updatePanel();
 	});
 });
 
-// Кнопка «Сбросить» очищает и выбранные блюда
-form.addEventListener("reset", () => {
-	for (const category in order) {
-		order[category] = null;
-	}
-	updateOrder();
-});
-
-updateOrder();
+// После загрузки блюд учитываем заказ, сохранённый ранее
+dishesReady.then(updatePanel);

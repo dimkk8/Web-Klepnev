@@ -1,10 +1,12 @@
 // Проверяет, что выбранные блюда образуют один из доступных комбо.
-function getComboMessage() {
-	const hasSoup = order.soup !== null;
-	const hasMain = order.main !== null;
-	const hasSalad = order.salad !== null;
-	const hasDrink = order.drink !== null;
-	const hasDessert = order.dessert !== null;
+// selected — объект { soup, main, salad, drink, dessert } (блюдо или null).
+// Возвращает текст уведомления или null, если заказ можно оформлять.
+function getComboMessage(selected) {
+	const hasSoup = Boolean(selected.soup);
+	const hasMain = Boolean(selected.main);
+	const hasSalad = Boolean(selected.salad);
+	const hasDrink = Boolean(selected.drink);
+	const hasDessert = Boolean(selected.dessert);
 
 	if (!hasSoup && !hasMain && !hasSalad && !hasDrink && !hasDessert) {
 		return "Ничего не выбрано. Выберите блюда для заказа";
@@ -44,13 +46,3 @@ function showNotification(text) {
 	document.body.append(box);
 	button.focus();
 }
-
-// При отправке формы проверяем состав ланча
-document.querySelector("form").addEventListener("submit", (event) => {
-	const message = getComboMessage();
-
-	if (message !== null) {
-		event.preventDefault();
-		showNotification(message);
-	}
-});
