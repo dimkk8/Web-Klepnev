@@ -26,7 +26,7 @@ const totalText = document.getElementById("order-total");
 const timeInput = document.getElementById("delivery-time");
 const submitButton = form.querySelector("button[type=\"submit\"]");
 
-/* ---------- Состав заказа и список в форме ---------- */
+/* Состав заказа и список в форме */
 
 function renderCheckout() {
 	const selected = getSelectedDishes();
@@ -71,7 +71,7 @@ selectedContainer.addEventListener("click", (event) => {
 	renderCheckout();
 });
 
-/* ---------- Время доставки ---------- */
+/* Время доставки */
 
 // Время нужно указывать только для доставки «к указанному времени»
 function syncTime() {
@@ -85,7 +85,7 @@ form.addEventListener("change", syncTime);
 form.addEventListener("reset", () => setTimeout(syncTime));
 syncTime();
 
-/* ---------- Отправка заказа ---------- */
+/* Отправка заказа */
 
 async function sendOrder(data) {
 	const response = await fetch(`${ORDERS_URL}?api_key=${API_KEY}`, {
@@ -158,7 +158,7 @@ form.addEventListener("submit", async (event) => {
 	}
 });
 
-/* ---------- Загрузка блюд ---------- */
+/* Загрузка блюд */
 
 loadDishes()
 	.then(renderCheckout)

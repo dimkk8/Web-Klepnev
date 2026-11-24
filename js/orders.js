@@ -73,8 +73,6 @@ function pad(number) {
 }
 
 function formatDate(value) {
-	// API присылает created_at без часового пояса (например, "2026-11-15T08:42:12.7"),
-	// но это время в UTC. Без "Z" браузер считает его локальным и показывает как есть.
 	let normalized = value;
 	if (typeof value === "string") {
 		const hasTimeZone = /(?:Z|[+-]\d{2}:?\d{2})$/i.test(value.trim());
